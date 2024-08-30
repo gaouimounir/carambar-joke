@@ -33,9 +33,9 @@ exports.getJokeById = async (req, res) => {
 
 exports.getRandomJoke = async (req, res) => {
     try {
-        const joke = await Joke.findOne({ order: Sequelize.literal('RANDOM()') });
-        res.status(200).json(joke);
+      const joke = await Joke.findOne({ order: sequelize.random() });
+      res.status(200).json(joke);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+      res.status(400).json({ error: error.message });
     }
-};
+  };
